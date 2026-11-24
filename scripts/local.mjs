@@ -72,6 +72,8 @@ const db = {
 
 const shell = readFileSync(new URL("lib/shell.html", root));
 const publicFiles = new Map([
+  ["/privacidade.html", "text/html; charset=utf-8"],
+  ["/cookies.html", "text/html; charset=utf-8"],
   ["/fonts/baskervville-latin-400-normal.woff2", "font/woff2"],
   ["/fonts/baskervville-latin-400-italic.woff2", "font/woff2"],
   ["/fonts/dm-sans-latin-400-normal.woff2", "font/woff2"],

@@ -65,3 +65,8 @@ button:disabled{opacity:.65}.account-switch{text-align:center;font-size:.9rem;co
 @media(max-width:360px){.form-side{padding:20px}.overview>div{gap:8px}.form-side h2{font-size:2.18rem}.tracks{grid-template-columns:1fr}.track{min-height:145px}}
 
 
+.policy{max-width:760px}
+.policy h2{font:normal 1.55rem/1.2 var(--serif);margin:1.7rem 0 .4rem}
+.policy p{margin:.5rem 0;color:var(--sub);line-height:1.65}
+.policy a,.policy-links a{text-underline-offset:3px}
+.policy-links{display:flex;flex-wrap:wrap;gap:10px 18px}
