@@ -38,6 +38,11 @@
 .ct-square.ct-last.ct-light {background:#e2dda4!important}
 .ct-square.ct-last.ct-dark {background:#a8b677!important}
 .ct-square.ct-selected {background:#d9b36a!important}
+.ct-square.ct-destination::before,.ct-square.ct-capture::before {
+  content:"";position:absolute;border-radius:50%;pointer-events:none
+}
+.ct-square.ct-destination::before {width:26%;height:26%;background:#173728b3}
+.ct-square.ct-capture::before {inset:5%;border:clamp(2px,.45vw,5px) solid #173728d9;z-index:1}
 .ct-square.ct-hint::after {content:"";position:absolute;inset:7%;border:3px dashed #70430d;border-radius:14%;pointer-events:none}
 .ct-trainer .ct-square:focus-visible {outline:3px solid #584110;outline-offset:-3px}
 .ct-file,.ct-rank {position:absolute;font-family:var(--ct-sans);font-size:clamp(.57rem,1.25vw,.78rem);font-weight:750;line-height:1;pointer-events:none}
