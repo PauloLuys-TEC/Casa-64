@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f8f8f3">
+<title>Casa 64 · Escola de Xadrez</title>
+<meta name="description" content="Aprenda 40 aberturas e 40 defesas de xadrez com treino guiado no tabuleiro.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/escola.css"><link rel="stylesheet" href="/treinador.css">
+<script type="module" src="/escola.js"></script>
+</head>
+<body>
+<header class="mast"><div class="mast-inner">
+<a href="#inicio" class="brand" aria-label="Casa 64, início"><img src="/marca.svg" alt="" width="43" height="43"><span>Casa <b>64</b></span></a>
+<span class="mast-line"></span><span class="school-name">Escola de xadrez</span>
+<div class="account" id="account"><span class="round-icon" data-icon="user"></span><span>Área do aluno</span></div>
+</div></header>
+<main id="main" tabindex="-1">
+<section id="entry" class="entry wrap">
+<div class="cover">
+<img class="cover-photo" src="/cavalo.webp" alt="Cavalo de madeira clara sobre um tabuleiro verde, iluminado de lado.">
+<div class="cover-type"><p class="overline"><i></i> Treino guiado</p><h1>Xadrez em<br><em>prática.</em></h1></div>
+</div>
+<div class="form-side">
+<div class="tabs" aria-label="Acesso à conta"><button type="button" data-mode="login" aria-pressed="true">Entrar</button><button type="button" data-mode="register" aria-pressed="false">Criar conta</button></div>
+<h2 id="form-title">Entre na escola.</h2><p class="form-desc" id="form-desc">Acesse sua conta para treinar aberturas e defesas.</p>
+<form id="auth-form" method="post" action="/api/login">
+<label for="username">Usuário</label>
+<div class="field"><span data-icon="user"></span><input name="username" id="username" required minlength="3" maxlength="32" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Seu nome de usuário"></div>
+<label for="password">Senha</label>
+<div class="field"><span data-icon="lock"></span><input name="password" id="password" type="password" required maxlength="256" autocomplete="current-password" placeholder="Sua senha"><button type="button" class="eye" id="eye" aria-label="Mostrar senha" aria-pressed="false"><span data-icon="eye"></span></button></div>
+<p id="auth-hint" class="hint" hidden></p><p id="auth-error" class="error" role="alert" hidden></p>
+<button class="primary submit" id="submit" type="submit"><span data-icon="login"></span><span id="submit-text">Entrar na escola</span></button>
+</form>
+<p class="account-switch"><span id="switch-label">Primeiro acesso?</span> <button type="button" id="switch-mode">Crie sua conta</button></p>
+</div></section>
+<div id="entry-foot" class="overview wrap" aria-label="Conteúdo da escola">
+<div><span class="feature-icon" data-icon="board"></span><div><strong>40 aberturas</strong><small>Repertório das brancas</small></div></div>
+<div><span class="feature-icon" data-icon="shield"></span><div><strong>40 defesas</strong><small>Repertório das pretas</small></div></div>
+<div><span class="feature-icon" data-icon="clock"></span><div><strong>Tempo de treino</strong><small>Registrado por lição</small></div></div>
+</div>
+<section id="school" class="wrap interior" hidden></section>
+<noscript>Ative o JavaScript do navegador para entrar e treinar no tabuleiro.</noscript>
+</main>
+<footer class="footer wrap"><span class="mini-brand"><span class="checker" aria-hidden="true"></span>Casa 64</span><span>Escola de xadrez</span></footer>
+</body></html>
