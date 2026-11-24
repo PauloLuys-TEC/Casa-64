@@ -297,15 +297,21 @@ export function mountTrainer(container, lesson, { onExit, onTime, initialSeconds
   function moveNumber(i) {return (Math.floor(i/2)+1)+(i%2?"... ":". ")+labels[i];}
   function turnIsLearner() {return (ply%2===0)===learnerWhite;}
   function drawBoard() {
-    const last=lesson.moves[ply-1], expected=lesson.moves[ply], current=positions[ply].board;
+    const position = positions[ply];
+    const last=lesson.moves[ply-1], expected=lesson.moves[ply], current=position.board;
+    const showDestinations = selected && mode !== "demo" && turnIsLearner() && expected;
     cells.forEach((cell,i)=>{
       const col=i%8, row=Math.floor(i/8), x=flipped?7-col:col, y=flipped?row:7-row;
       const sq=squareAt(x,y), piece=current[sq], activeHint=mode!=="demo" && turnIsLearner() && expected;
       cell.dataset.square=sq; cell.className="ct-square "+((x+y)%2?"ct-light":"ct-dark");
       if (last && (sq===last.from || sq===last.to)) cell.classList.add("ct-last");
       if (sq===selected) cell.classList.add("ct-selected");
+      const destination = showDestinations && legal(position, selected, sq, learnerWhite);
+      const capture = destination && (piece || (current[selected]?.toLowerCase() === "p" && position.enPassant === sq));
+      if (destination) cell.classList.add(capture ? "ct-capture" : "ct-destination");
       if (activeHint && (hint>=1 && sq===expected.from || hint===2 && sq===expected.to)) cell.classList.add("ct-hint");
-      cell.ariaLabel=sq + (piece?", "+pieceNames[piece.toLowerCase()]+" "+(isWhite(piece)?"das brancas":"das pretas"):", vazia");
+      cell.ariaLabel=sq + (piece?", "+pieceNames[piece.toLowerCase()]+" "+(isWhite(piece)?"das brancas":"das pretas"):", vazia") +
+        (destination ? (capture ? ", captura possível" : ", destino legal") : "");
       cell.setAttribute("aria-pressed",String(sq===selected)); cell.tabIndex=sq===focusSquare?0:-1;
       cell.replaceChildren();
       if (piece) cell.append(pieceImage(piece));
